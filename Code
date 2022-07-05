@@ -1,0 +1,43 @@
+# Code for Billing
+def menu():
+    print('''Items-----------------------Price
+Tea-------------------------10
+Coffee----------------------25
+Pasta-----------------------95
+Pizza-----------------------150
+Chocochipcookie-------------50
+Chocolate Shake-------------105''')
+
+def takingorder():
+    
+    order = input("What would you like sir!!!: ")
+    order = order.split()
+    
+    return order
+
+def bill(lst):
+    menulist ={"Tea":10,"Coffee":25,"Pasta":95,"Pizza":150,"Chocochipcookie":50,"Chocolate Shake":105}
+    rate = 0
+    for i in lst:
+        i = i.capitalize()
+        rate += menulist[i]
+    bill = rate+(rate*.05)
+    return bill 
+    
+print("Hello Sir Welcome to the Reastaurant")
+ask = input("Want to order Sir:Yes/No: ")
+if ask in ["Yes","yes"]:
+    want_to_eat = True
+    while want_to_eat:
+        menu()
+        orderlist = takingorder()
+        print(orderlist)
+        Total_bill = bill(orderlist)
+        print(f"Your Bill is {Total_bill}. Thankyou Come Again!!!")
+        print("Have a nice day sir")
+        want_to_eat = False
+        break
+else:
+    want_to_eat = False
+    print("Check out our menu sir!!!!!")
+    menu()
